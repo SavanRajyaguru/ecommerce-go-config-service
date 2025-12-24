@@ -20,6 +20,9 @@ func main() {
 	}
 
 	// Initialize Router
+	fmt.Printf("DEBUG: Loaded Config - Port: %s, GrpcPort: %s\n", cfg.Server.Port, cfg.Server.GrpcPort)
+
+	// Initialize Router
 	r := api.SetupRouter()
 
 	// Start gRPC Server
