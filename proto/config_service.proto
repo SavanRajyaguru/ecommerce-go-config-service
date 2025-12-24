@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package config;
 
-option go_package = "github.com/Yudiz/ecommerce-go-config-service/proto";
+option go_package = "github.com/SavanRajyaguru/ecommerce-go-config-service/proto";
 
 service ConfigService {
   rpc GetConfig (GetConfigRequest) returns (GetConfigResponse);

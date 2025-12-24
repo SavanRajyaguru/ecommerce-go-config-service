@@ -7,11 +7,12 @@
 package proto
 
 import (
-	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
-	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	reflect "reflect"
 	sync "sync"
 	unsafe "unsafe"
+
+	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
+	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 )
 
 const (
@@ -120,7 +121,7 @@ const file_proto_config_service_proto_rawDesc = "" +
 	"\vconfig_json\x18\x01 \x01(\tR\n" +
 	"configJson2Q\n" +
 	"\rConfigService\x12@\n" +
-	"\tGetConfig\x12\x18.config.GetConfigRequest\x1a\x19.config.GetConfigResponseB4Z2github.com/Yudiz/ecommerce-go-config-service/protob\x06proto3"
+	"\tGetConfig\x12\x18.config.GetConfigRequest\x1a\x19.config.GetConfigResponseB4Z2github.com/SavanRajyaguru/ecommerce-go-config-service/protob\x06proto3"
 
 var (
 	file_proto_config_service_proto_rawDescOnce sync.Once

@@ -7,9 +7,9 @@ import (
 	"net"
 	"testing"
 
-	"github.com/Yudiz/ecommerce-go-config-service/config"
-	internalGrpc "github.com/Yudiz/ecommerce-go-config-service/internal/grpc"
-	pb "github.com/Yudiz/ecommerce-go-config-service/proto"
+	"github.com/SavanRajyaguru/ecommerce-go-config-service/config"
+	internalGrpc "github.com/SavanRajyaguru/ecommerce-go-config-service/internal/grpc"
+	pb "github.com/SavanRajyaguru/ecommerce-go-config-service/proto"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/credentials/insecure"
 	"google.golang.org/grpc/test/bufconn"
@@ -24,7 +24,7 @@ func init() {
 	s := grpc.NewServer()
 	// Mock Config
 	cfg := &config.Config{
-		UserService: config.PostgresServiceConfig{
+		UserService: config.UserServiceConfig{
 			DB: config.PostgresConfig{
 				Host: "mock-host",
 			},

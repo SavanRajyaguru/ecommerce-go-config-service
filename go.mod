@@ -1,4 +1,4 @@
-module github.com/Yudiz/ecommerce-go-config-service
+module github.com/SavanRajyaguru/ecommerce-go-config-service
 
 go 1.24.3
 

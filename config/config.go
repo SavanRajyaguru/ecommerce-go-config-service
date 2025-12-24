@@ -9,7 +9,7 @@ import (
 
 type Config struct {
 	Server              ServerConfig              `mapstructure:"server" json:"server"`
-	UserService         PostgresServiceConfig     `mapstructure:"user_service" json:"user_service"`
+	UserService         UserServiceConfig         `mapstructure:"user_service" json:"user_service"`
 	ProductService      PostgresServiceConfig     `mapstructure:"product_service" json:"product_service"`
 	OrderService        PostgresServiceConfig     `mapstructure:"order_service" json:"order_service"`
 	PaymentService      PostgresServiceConfig     `mapstructure:"payment_service" json:"payment_service"`
@@ -56,12 +56,27 @@ type InventoryServiceConfig struct {
 	Redis RedisConfig    `mapstructure:"redis" json:"redis"`
 }
 
+type UserServiceConfig struct {
+	DB    PostgresConfig `mapstructure:"db" json:"db"`
+	Redis RedisConfig    `mapstructure:"redis" json:"redis"`
+}
+
 type NotificationServiceConfig struct {
 	Mongo MongoConfig `mapstructure:"mongo" json:"mongo"`
 }
 
 func LoadConfig() (*Config, error) {
-	viper.SetConfigFile(".env")
+	// 1. Load config.yaml (Base config)
+	viper.SetConfigName("config")
+	viper.SetConfigType("yaml")
+	viper.AddConfigPath(".")
+
+	if err := viper.ReadInConfig(); err != nil {
+		log.Printf("Warning: Failed to read config.yaml: %v", err)
+	}
+
+	// 2. Load .env (Overrides)
+	viper.SetConfigName(".env")
 	viper.SetConfigType("env")
 	viper.AddConfigPath(".")
 
@@ -70,9 +85,12 @@ func LoadConfig() (*Config, error) {
 	viper.SetEnvKeyReplacer(strings.NewReplacer(".", "_"))
 	viper.AutomaticEnv()
 
-	if err := viper.ReadInConfig(); err != nil {
-		log.Printf("Info: No .env file found, relying on environment variables: %v", err)
+	if err := viper.MergeInConfig(); err != nil {
+		log.Printf("Info: No .env file found or failed to merge, relying on defaults/env: %v", err)
 	}
+
+	// Manually bind specific env vars if needed
+	// But config.yaml provides the structure, so Unmarshal should mostly work.
 
 	var cfg Config
 	if err := viper.Unmarshal(&cfg); err != nil {

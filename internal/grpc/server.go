@@ -5,8 +5,8 @@ import (
 	"encoding/json"
 	"log"
 
-	"github.com/Yudiz/ecommerce-go-config-service/config"
-	pb "github.com/Yudiz/ecommerce-go-config-service/proto"
+	"github.com/SavanRajyaguru/ecommerce-go-config-service/config"
+	pb "github.com/SavanRajyaguru/ecommerce-go-config-service/proto"
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"
 )

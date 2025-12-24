@@ -5,10 +5,10 @@ import (
 	"log"
 	"net"
 
-	"github.com/Yudiz/ecommerce-go-config-service/api"
-	"github.com/Yudiz/ecommerce-go-config-service/config"
-	internalGrpc "github.com/Yudiz/ecommerce-go-config-service/internal/grpc"
-	pb "github.com/Yudiz/ecommerce-go-config-service/proto"
+	"github.com/SavanRajyaguru/ecommerce-go-config-service/api"
+	"github.com/SavanRajyaguru/ecommerce-go-config-service/config"
+	internalGrpc "github.com/SavanRajyaguru/ecommerce-go-config-service/internal/grpc"
+	pb "github.com/SavanRajyaguru/ecommerce-go-config-service/proto"
 	"google.golang.org/grpc"
 )
 
